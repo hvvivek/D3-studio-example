@@ -50,7 +50,7 @@ var projection = d3.geoAlbersUsa()
 
 
 var graph = d3.select("#graph")
-width = 1000;
+width = 800;
 height = 400;
 
 xScale = d3.scaleLinear().domain([0, 366]).range([0, width])
@@ -123,10 +123,6 @@ setInterval(function(){
             }         
         }
 
-        // console.log(x)
-        // console.log(y)
-
-        
         if(typeof x != 'undefined' & typeof y != 'undefined')
         {
             d3.select("#moon").selectAll("path").remove()
@@ -185,61 +181,3 @@ setInterval(function(){
     // console.log(d + " " + h)
 }
 }, 100)
-
-
-
-
-// setup x 
-// var xValue = function(d) { return d.Calories;}, // data -> value
-//     xScale = d3.scale.linear().range([0, width]), // value -> display
-//     xMap = function(d) { return xScale(xValue(d));}, // data -> display
-//     xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-
-// // setup y
-// var yValue = function(d) { return d["Protein (g)"];}, // data -> value
-//     yScale = d3.scale.linear().range([height, 0]), // value -> display
-//     yMap = function(d) { return yScale(yValue(d));}, // data -> display
-//     yAxis = d3.svg.axis().scale(yScale).orient("left");
-
-// // don't want dots overlapping axis, so add in buffer to data domain
-// xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-// yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
-
-// // x-axis
-// svg.append("g")
-//     .attr("class", "x axis")
-//     .attr("transform", "translate(0," + height + ")")
-//     .call(xAxis)
-//   .append("text")
-//     .attr("class", "label")
-//     .attr("x", width)
-//     .attr("y", -6)
-//     .style("text-anchor", "end")
-//     .text("Calories");
-
-// // y-axis
-
-
-// // draw dots
-// svg.selectAll(".dot")
-//     .data(data)
-//   .enter().append("circle")
-//     .attr("class", "dot")
-//     .attr("r", 3.5)
-//     .attr("cx", xMap)
-//     .attr("cy", yMap)
-//     .style("fill", function(d) { return color(cValue(d));}) 
-//     .on("mouseover", function(d) {
-//         tooltip.transition()
-//              .duration(200)
-//              .style("opacity", .9);
-//         tooltip.html(d["Cereal Name"] + "<br/> (" + xValue(d) 
-//           + ", " + yValue(d) + ")")
-//              .style("left", (d3.event.pageX + 5) + "px")
-//              .style("top", (d3.event.pageY - 28) + "px");
-//     })
-//     .on("mouseout", function(d) {
-//         tooltip.transition()
-//              .duration(500)
-//              .style("opacity", 0);
-//     });
